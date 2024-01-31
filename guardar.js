@@ -61,7 +61,7 @@ function updateGitHubFile(fileName, content) {
                 method: "PUT",
                 headers: {
                     "Content-Type": "application/json",
-                    "Authorization": "token TU-TOKEN-DE-ACCESO"  // Cambia esto con tu token de acceso personal de GitHub
+                    "Authorization": "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"  // Cambia esto con tu token de acceso personal de GitHub
                 },
                 body: JSON.stringify(updateData)
             })
