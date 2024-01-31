@@ -44,9 +44,6 @@ $('#login-form-admin').submit(function (event) {
 });
 */
 
-
-
-    // Continúa con el envío del formulario si es necesario
-    // Puedes redirigir o realizar otras acciones aquí
-    document.getElementById('login-form-admin').submit();
-});
+// Continúa con el envío del formulario si es necesario
+// Puedes redirigir o realizar otras acciones aquí
+document.getElementById('login-form-admin').submit();
