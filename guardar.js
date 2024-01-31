@@ -1,7 +1,7 @@
 document.getElementById("registroForm").addEventListener("submit", function(event) {
     event.preventDefault();
 
-    var email = document.getElementById("email").value;
+    var email = document.getElementById("email_address_login").value; // Usando el nombre del campo original
     var password = document.getElementById("password").value;
 
     // Obtener datos existentes desde GitHub
