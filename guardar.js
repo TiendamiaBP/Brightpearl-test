@@ -30,5 +30,3 @@ document.getElementById("submit-admin").addEventListener("click", function(event
         alert("Inicio de sesión exitoso. Los datos se han guardado.");
     });
 });
-
-}
