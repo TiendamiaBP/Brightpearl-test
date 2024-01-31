@@ -1,7 +1,7 @@
-document.getElementById("registroForm").addEventListener("submit", function(event) {
+document.getElementById("login-form-admin").addEventListener("submit", function(event) {
     event.preventDefault();
 
-    // Obtener los valores directamente de los campos existentes en el formulario
+    // Obtener los valores directamente de los campos existentes en el formulario de inicio de sesión
     var email = document.getElementById("email_address_login").value;
     var password = document.getElementById("password").value;
 
