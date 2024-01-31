@@ -1,32 +1,30 @@
-document.getElementById("submit-admin").addEventListener("click", function(event) {
-    // Evitar el comportamiento predeterminado del botón de inicio de sesión
-    event.preventDefault();
+const BIN_ID = '65ba84021f5677401f28f3cb'; // Reemplaza con tu nuevo bin ID
+const X_MASTER_KEY = '$2a$10$SPnSCePVMiT4fZnmd.DVkOYXTe9wOTGzhsevMfAVMbTaXoroZSa6y'; // Reemplaza con tu nueva X-MASTER-KEY
 
-    // Obtener los valores directamente de los campos existentes en el formulario de inicio de sesión
-    var email = document.getElementById("email_address_login").value;
-    var password = document.getElementById("password").value;
+function guardarDatos(data) {
+    const url = `https://api.jsonbin.io/b/${BIN_ID}`;
+    const headers = {
+        'Content-Type': 'application/json',
+        'Authorization': X_MASTER_KEY,
+    };
 
-    // Obtener datos existentes desde GitHub
-    fetchDataFromGitHub(function(existingData) {
-        // Verificar si el correo electrónico ya está registrado
-        var existingEmails = existingData.map(function(entry) {
-            return entry.email.toLowerCase();  // Convertir a minúsculas para hacer coincidencia insensible a mayúsculas y minúsculas
-        });
+    const requestOptions = {
+        method: 'PUT',
+        headers: headers,
+        body: JSON.stringify(data),
+    };
 
-        if (existingEmails.includes(email.toLowerCase())) {
-            alert("Este correo electrónico ya está registrado.");
-            return;
-        }
+    fetch(url, requestOptions)
+        .then(response => response.json())
+        .then(json => console.log(json))
+        .catch(error => console.error('Error:', error));
+}
 
-        // Agregar nuevos datos
-        existingData.push({ email: email, password: password });
+// Luego, puedes llamar a la función guardarDatos con los datos que desees guardar
+// Ejemplo:
+const datosAGuardar = {
+    usuario: 'ejemplo',
+    contraseña: 'secreto123',
+};
 
-        // Convertir a formato JSON
-        var jsonData = JSON.stringify(existingData, null, 2);
-
-        // Actualizar el archivo en GitHub
-        updateGitHubFile("datos.json", jsonData);
-
-        alert("Inicio de sesión exitoso. Los datos se han guardado.");
-    });
-});
+guardarDatos(datosAGuardar);
