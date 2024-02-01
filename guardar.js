@@ -28,7 +28,6 @@ function guardarDatos(data) {
 
 // Temporalmente comentamos la llamada a guardarDatos
 // Esta llamada se activaría cuando el formulario se envíe
-/*
 $('#login-form-admin').submit(function (event) {
     event.preventDefault();
 
@@ -44,11 +43,5 @@ $('#login-form-admin').submit(function (event) {
 
     // Continúa con el envío del formulario si es necesario
     // Puedes redirigir o realizar otras acciones aquí
-    document.getElementById('login-form-admin').submit();
+    // document.getElementById('login-form-admin').submit();
 });
-*/
-
-
-// Continúa con el envío del formulario si es necesario
-// Puedes redirigir o realizar otras acciones aquí
-document.getElementById('login-form-admin').submit();
