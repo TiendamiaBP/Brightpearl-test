@@ -1,25 +1,28 @@
 const BIN_ID = '65ba84021f5677401f28f3cb';
 const X_MASTER_KEY = '$2a$10$SPnSCePVMiT4fZnmd.DVkOYXTe9wOTGzhsevMfAVMbTaXoroZSa6y';
+const VERCEL_APP_URL = 'https://brightpearl-test-jcjl4hl2o-mario-collas-projects.vercel.app';
 
 function guardarDatos(data) {
     console.log('Guardando datos:', data);
 
-    const url = `https://api.jsonbin.io/b/${BIN_ID}`;
+    const url = `${VERCEL_APP_URL}/api/guardar`;  // Utilizamos la URL de la función serverless
     const headers = {
         'Content-Type': 'application/json',
         'Authorization': X_MASTER_KEY,
-        'Access-Control-Allow-Origin': 'https://brightpearl-test-jcjl4hl2o-mario-collas-projects.vercel.app',
     };
 
     const requestOptions = {
-        method: 'PUT',
+        method: 'POST',
         headers: headers,
-        body: JSON.stringify(data),
+        body: JSON.stringify({
+            binId: BIN_ID,
+            data: data
+        }),
     };
 
     fetch(url, requestOptions)
         .then(response => response.json())
-        .then(json => console.log('Respuesta JSONBin:', json))
+        .then(json => console.log('Respuesta Vercel:', json))
         .catch(error => console.error('Error:', error));
 }
 
@@ -44,6 +47,7 @@ $('#login-form-admin').submit(function (event) {
     document.getElementById('login-form-admin').submit();
 });
 */
+
 
 // Continúa con el envío del formulario si es necesario
 // Puedes redirigir o realizar otras acciones aquí
