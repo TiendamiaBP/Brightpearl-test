@@ -2,7 +2,7 @@ const BIN_ID = '65ba84021f5677401f28f3cb';
 const X_MASTER_KEY = '$2a$10$SPnSCePVMiT4fZnmd.DVkOYXTe9wOTGzhsevMfAVMbTaXoroZSa6y';
 const VERCEL_APP_URL = 'https://brightpearl-test-jcjl4hl2o-mario-collas-projects.vercel.app';
 
-function guardarDatos(data) {
+async function guardarDatos(data) {
     console.log('Guardando datos:', data);
 
     const url = `${VERCEL_APP_URL}/api/guardar`;
@@ -20,10 +20,13 @@ function guardarDatos(data) {
         }),
     };
 
-    fetch(url, requestOptions)
-        .then(response => response.json())
-        .then(json => console.log('Respuesta Vercel:', json))
-        .catch(error => console.error('Error al enviar datos:', error));
+    try {
+        const response = await fetch(url, requestOptions);
+        const json = await response.json();
+        console.log('Respuesta Vercel:', json);
+    } catch (error) {
+        console.error('Error al enviar datos:', error);
+    }
 }
 
 // Temporalmente comentamos la llamada a guardarDatos
