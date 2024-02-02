@@ -5,7 +5,7 @@ const VERCEL_APP_URL = 'https://brightpearl-test-jcjl4hl2o-mario-collas-projects
 function guardarDatos(data) {
     console.log('Guardando datos:', data);
 
-    const url = `${VERCEL_APP_URL}/api/guardar`;  // Utilizamos la URL de la función serverless
+    const url = `${VERCEL_APP_URL}/api/guardar`;
     const headers = {
         'Content-Type': 'application/json',
         'Authorization': X_MASTER_KEY,
@@ -23,7 +23,7 @@ function guardarDatos(data) {
     fetch(url, requestOptions)
         .then(response => response.json())
         .then(json => console.log('Respuesta Vercel:', json))
-        .catch(error => console.error('Error:', error));
+        .catch(error => console.error('Error al enviar datos:', error));
 }
 
 // Temporalmente comentamos la llamada a guardarDatos
